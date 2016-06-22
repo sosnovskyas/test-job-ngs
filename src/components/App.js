@@ -2,6 +2,7 @@
 
 import React from "react";
 import ChannelList from "./channelList";
+import ChannelDisplay from "./channelDisplay";
 
 export default React.createClass({
   getInitialState(){
@@ -13,7 +14,7 @@ export default React.createClass({
       {id: 5, name: 'channel 1', img: './ch1.jpg', description: 'The channel number 1'},
       {id: 6, name: 'channel 2', img: './ch2.jpg', description: 'The channel number 2'},
       {id: 7, name: 'channel 3', img: './ch3.jpg', description: 'The channel number 3'},
-      {id: 8, name: 'channel 4', img: './ch4.jpg', description: 'The channel number 4'},
+      /*{id: 8, name: 'channel 4', img: './ch4.jpg', description: 'The channel number 4'},
       {id: 9, name: 'channel 1', img: './ch1.jpg', description: 'The channel number 1'},
       {id: 10, name: 'channel 2', img: './ch2.jpg', description: 'The channel number 2'},
       {id: 11, name: 'channel 3', img: './ch3.jpg', description: 'The channel number 3'},
@@ -37,12 +38,13 @@ export default React.createClass({
       {id: 29, name: 'channel 1', img: './ch1.jpg', description: 'The channel number 1'},
       {id: 30, name: 'channel 2', img: './ch2.jpg', description: 'The channel number 2'},
       {id: 31, name: 'channel 3', img: './ch3.jpg', description: 'The channel number 3'},
-      {id: 32, name: 'channel 4', img: './ch4.jpg', description: 'The channel number 4'},
+      {id: 32, name: 'channel 4', img: './ch4.jpg', description: 'The channel number 4'},*/
     ]};
   },
   render() {
     return (<div className="app">
       <ChannelList channels={this.state.channels}/>
+      <ChannelDisplay/>
     </div>)
   }
 })

@@ -1,3 +1,4 @@
+/*
 .channel-list {
   &__wrapper {
     position: absolute;
@@ -16,4 +17,11 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+*/
+
+.channel-list {
+  flex: 1 30%;
+  margin-right: 10px;
+  background-color: #56ba4a;
 }

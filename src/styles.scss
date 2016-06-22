@@ -15,5 +15,13 @@ body {
   position: relative;
   height: 100%;
   */
+}
+
+.app {
   display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: stretch;
+
+  height: 100%;
 }
