@@ -39,7 +39,7 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel']},
-      {test: /\.scss$/, loader: ExtractTextPlugin.extract(['css', 'sass?sourceMap'])},
+      {test: /\.scss$/, loader: ExtractTextPlugin.extract(['css','postcss', 'sass?sourceMap'])},
       {test: /\.json$/, exclude: /node_modules/, loader: 'json-loader'},
       {test: /\.jade/, exclude: /node_modules/, loader: 'jade-loader'}
     ]

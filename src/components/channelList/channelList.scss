@@ -1,0 +1,19 @@
+.channel-list {
+  &__wrapper {
+    position: absolute;
+    height: 100%;
+
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid greenyellow;
+
+    background-color: #89bdff;
+  }
+
+  height: 100%;
+  overflow-y: scroll;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
