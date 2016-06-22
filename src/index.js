@@ -3,11 +3,12 @@
 import "./styles.scss";
 
 import React from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-dom";
+import {Router, browserHistory} from "react-router"
+import routes from './components/Routes'
 
-import App from "./components/App";
 
-ReactDOM.render(
-  <App/>,
+render(
+  <Router routes={routes} history={browserHistory}/>,
   document.getElementById('root')
 );

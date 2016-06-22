@@ -10,6 +10,6 @@ export default class ChannelAdd extends React.Component {
   }
 
   render() {
-    return (<div className="channel-add"></div>)
+    return (<div className="channel-add">add</div>)
   }
 }

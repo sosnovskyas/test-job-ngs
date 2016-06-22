@@ -1,16 +1,16 @@
 'use strict';
 
-import React from 'react'
+import React from "react";
 
 export default class ChannelShow extends React.Component {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-    }
+  }
 
-    render() {
-        return (<div>
-
-        </div>);
-    }
+  render() {
+    return (<div>
+      show
+    </div>);
+  }
 }

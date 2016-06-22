@@ -44,7 +44,7 @@ export default React.createClass({
   render() {
     return (<div className="app">
       <ChannelList channels={this.state.channels}/>
-      <Display/>
+      <Display>{this.props.children}</Display>
     </div>)
   }
 })
