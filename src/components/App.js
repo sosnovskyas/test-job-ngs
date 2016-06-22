@@ -2,7 +2,7 @@
 
 import React from "react";
 import ChannelList from "./channelList";
-import ChannelDisplay from "./channelDisplay";
+import Display from "./display";
 
 export default React.createClass({
   getInitialState(){
@@ -44,7 +44,7 @@ export default React.createClass({
   render() {
     return (<div className="app">
       <ChannelList channels={this.state.channels}/>
-      <ChannelDisplay/>
+      <Display/>
     </div>)
   }
 })

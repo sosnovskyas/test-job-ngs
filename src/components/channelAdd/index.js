@@ -10,9 +10,6 @@ export default class ChannelAdd extends React.Component {
   }
 
   render() {
-    return (<button className="channel-add" onClick={this.props.onClick}>
-      <div className="channel-add__plus">+</div>
-      {this.props.text}
-    </button>)
+    return (<div className="channel-add"></div>)
   }
 }

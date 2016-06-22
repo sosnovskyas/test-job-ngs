@@ -20,8 +20,14 @@
 }
 */
 
+@import './../../_common.scss';
+
 .channel-list {
+  @extend .box;
+
   flex: 1 30%;
   margin-right: 10px;
   background-color: #56ba4a;
+
+
 }
