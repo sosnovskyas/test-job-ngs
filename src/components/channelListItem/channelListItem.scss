@@ -1,0 +1,15 @@
+@import '../../styles.scss';
+
+.channel-list-item {
+  background-color: antiquewhite;
+  border-bottom: 1px solid #000;
+  @extend .clearfix;
+
+  &__left {
+    float: left;
+  }
+
+  &__right {
+    float: left;
+  }
+}
