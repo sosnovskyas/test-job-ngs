@@ -12,7 +12,7 @@ export default class Display extends React.Component {
 
   render() {
     return (<div className="display">
-      display
+      {this.props.children}
     </div>);
   }
 }
