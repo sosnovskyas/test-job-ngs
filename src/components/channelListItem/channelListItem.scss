@@ -1,9 +1,12 @@
 @import '../../styles.scss';
 
 .channel-list-item {
+  @extend .clearfix;
+
   background-color: antiquewhite;
   border-bottom: 1px solid #000;
-  @extend .clearfix;
+
+  padding: 12px;
 
   &__left {
     float: left;

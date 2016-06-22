@@ -19,9 +19,11 @@ export default class ChannelList extends React.Component {
 
   render() {
 
-    return <ul className="channel-list">
+    return <div className="channel-list__wrapper">
       <ChannelAdd text="Добавить новый канал" onClick={this.onAdd}/>
-      {this.props.channels.map(item => this.makeItem(item))}
-    </ul>
+      <ul className="channel-list">
+        {this.props.channels.map(item => this.makeItem(item))}
+      </ul>
+    </div>
   }
 }
