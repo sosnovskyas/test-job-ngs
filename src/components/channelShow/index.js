@@ -34,16 +34,43 @@ export default class ChannelShow extends React.Component {
     }
 
     return (<div className="channel-show">
-      <div className="channel-show__name"><img className="channel-show__image" src={channel.img}
-                                               alt="channel image"/>{channel.name}</div>
-      <div className="channel-show__description">{channel.description}</div>
+      <div className="channel-show__header">
+        <div className="channel-show__image-wrapper">
+          <img
+            className="channel-show__image"
+            src={channel.avatar||channel.img}
+            alt="channel image"/>
+        </div>
+        <div>
+          <div className="channel-show__name">{channel.name}</div>
+          <div className="channel-show__description">{channel.description}</div>
+        </div>
+
+        <div className="channel-show__control">
+          <button>qwe</button>
+          <button>qwe</button>
+        </div>
+      </div>
+
       <div className="channel-show__list">
         {feed.map(item => {
+          function getImage() {
+            if (item.enclosures.length && item.enclosures[0].type == "image/jpeg") {
+              return <div>
+                <a href={item.link|| ''} target="_blank">
+                  <img src={item.enclosures[0].url} alt=""/>
+                </a>
+              </div>
+            }
+          }
+
           return <div key={item.guid} className="channel-show__list-item">
+            {getImage()}
             <div>Автор: {item.author}</div>
             <div>Дата: {item.date}</div>
-            <div>{item.title}</div>
-            <div>{item.description}</div>
+            <div><a href={item.link|| ''} target="_blank">{item.title}</a></div>
+            {/* на всякий случай надо почистить от тегов*/}
+            <div>{(item.description || item.summary || '').replace(/<\/?[^>]+>/g, '')}</div>
             <hr/>
           </div>
         })}
@@ -67,7 +94,8 @@ export default class ChannelShow extends React.Component {
       }
       else {
         res.feed = result.feed.entries;
-        // console.log(res.feed.map(item => {console.log(item.guid)}));
+        res.avatar = result.feed.meta['rss:image'].url['#'];
+        
         this.setState(res);
       }
     });
