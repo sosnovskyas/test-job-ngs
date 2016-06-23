@@ -13,7 +13,10 @@ export default class ChannelListItem extends React.Component {
     return <li className={"channel-list-item " + active}>
       <Link className="channel-list-item__link" to={"/show/"+item.id}>
         <div className="channel-list-item__left">
-          <img src={item.img} alt=""/>
+          <img
+            className="channel-list-item__left-image"
+            src={item.img}
+            alt="channel image"/>
         </div>
         <div className="channel-list-item__right">
           <div>

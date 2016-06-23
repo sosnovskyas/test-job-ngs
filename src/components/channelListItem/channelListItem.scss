@@ -1,41 +1,39 @@
-/*
-@import '../../styles.scss';
-
-.channel-list-item {
-  @extend .clearfix;
-
-  background-color: antiquewhite;
-  border-bottom: 1px solid #000;
-
-  padding: 12px;
-
-  &__left {
-    float: left;
-  }
-
-  &__right {
-    float: left;
-  }
-}
-*/
-
 .channel-list-item {
   &__link {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-content: stretch;
+
+    text-decoration: none;
+    color: #fff;
+
+    padding: 5px;
   }
 
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #052A6E;
 
-  padding: 5px;
+
 
   &:first-child {
-    border-top: 1px solid black;
+    border-top: 1px solid #052A6E;
+  }
+
+  &__left {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+
+    &-image {
+      width: 100%;
+    }
+  }
+
+  &__right {
+
   }
 
   &_active {
-    background-color: red;
+    background-color: #29477F;
   }
 }
