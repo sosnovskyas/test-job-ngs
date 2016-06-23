@@ -15,7 +15,6 @@ export default React.createClass({
   },
 
   componentWillMount(){
-    window.addEventListener('storage', ()=> console.log('CHANGE'));
     this._channelsUpdate();
   },
 
