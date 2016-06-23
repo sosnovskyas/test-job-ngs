@@ -10,7 +10,10 @@ export default class App extends React.Component {
     super(props);
 
   }
-
+  
+  componentWillMount() {
+    this._channelsUpdate();
+  }
 
   _channelsUpdate() {
     serverApi.getChannels()
@@ -52,10 +55,7 @@ export default class App extends React.Component {
       {this.props.children}
     </div>)
   }
-  
-  componentWillMount() {
-    this._channelsUpdate();
-  }
+
 
   componentWillReceiveProps() {
     this._stateUpdate();
