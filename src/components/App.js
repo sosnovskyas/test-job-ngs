@@ -11,16 +11,28 @@ export default React.createClass({
   },
   
   componentDidMount(){
+    this.updateChannels();
+  },
+
+  updateChannels() {
     serverApi.getChannels()
-      .then(channels => this.setState({channels: channels}))
-      .catch(err => {
-        alert('Получение списка каналов с сервера произошло с ошибкой: ', err)
+      .then(channels => {
+        localStorage['channels'] = JSON.stringify(channels);
+        this.setState({
+          channels: JSON.parse(localStorage['channels']),
+          currentChannel: localStorage['currentChannel'] ? localStorage['currentChannel'] : 1
+        });
+
       })
+      .catch(err => {
+        alert('Получение списка каналов с сервера произошло с ошибкой: ', err);
+        this.setState({channels: []});
+      });
   },
 
   render() {
     return (<div className="app">
-      <ChannelList channels={this.state.channels}/>
+      <ChannelList channels={this.state.channels} current={this.state.currentChannel}/>
       <Display>{this.props.children}</Display>
     </div>)
   }
