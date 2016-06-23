@@ -47,8 +47,8 @@ export default class ChannelShow extends React.Component {
         </div>
 
         <div className="channel-show__control">
-          <button>qwe</button>
-          <button>qwe</button>
+          <input type="button" value="изменить" className="channel-show__control-edit"/>
+          <input type="button" value="удалить" className="channel-show__control-delete"/>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export default class ChannelShow extends React.Component {
       else {
         res.feed = result.feed.entries;
         res.avatar = result.feed.meta['rss:image'].url['#'];
-        
+
         this.setState(res);
       }
     });
