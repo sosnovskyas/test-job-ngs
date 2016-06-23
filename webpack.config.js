@@ -21,7 +21,8 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'developm
 
 module.exports = {
   watch: isDevelopment,
-  devtool: isDevelopment ? 'cheap-module-inline-cource-map' : null,
+  // devtool: isDevelopment ? 'cheap-module-inline-source-map' : null,
+  devtool: isDevelopment ? 'source-map' : null,
 
   entry: [
     'webpack-hot-middleware/client',
