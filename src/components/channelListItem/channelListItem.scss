@@ -20,6 +20,21 @@
 */
 
 .channel-list-item {
+  &__link {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+  }
+
+  border-bottom: 1px solid black;
+
+  padding: 5px;
+
+  &:first-child {
+    border-top: 1px solid black;
+  }
+
   &_active {
     background-color: red;
   }
