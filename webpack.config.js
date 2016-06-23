@@ -45,5 +45,5 @@ module.exports = {
       {test: /\.jade/, exclude: /node_modules/, loader: 'jade-loader'}
     ]
   },
-  postcss: [autoprefixer]
+  postcss: [autoprefixer({ browsers: ['ie 10','opera 12'] })]
 };
