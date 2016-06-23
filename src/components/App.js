@@ -3,7 +3,6 @@
 import React from "react";
 import serverApi from "./serverApi";
 import ChannelList from "./channelList";
-import Display from "./display";
 
 export default React.createClass({
   componentWillReceiveProps(nextProps){
@@ -55,7 +54,7 @@ export default React.createClass({
   render() {
     return (<div className="app">
       <ChannelList channels={this.state.channels} current={this.state.currentChannel}/>
-      <Display>{this.props.children}</Display>
+      {this.props.children}
     </div>)
   }
 })
