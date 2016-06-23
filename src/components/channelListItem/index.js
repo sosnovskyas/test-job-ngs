@@ -9,7 +9,8 @@ export default class ChannelListItem extends React.Component {
 
   render() {
     let item = this.props.item;
-    return <li className="channel-list-item">
+    let active = this.props.active ? 'channel-list-item_active':'' ;
+    return <li className={"channel-list-item " + active}>
       <div className="channel-list-item__left">
         <img src={item.img} alt=""/>
       </div>

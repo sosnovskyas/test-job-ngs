@@ -9,8 +9,8 @@ export default class ChannelList extends React.Component {
     super();
   }
 
-  makeItem(item) {
-    return <ChannelListItem item={item} key={item.id}/>
+  makeItem(item, active) {
+    return <ChannelListItem item={item} key={item.id} active={active}/>
   }
 
   onAdd() {
@@ -26,7 +26,7 @@ export default class ChannelList extends React.Component {
        Добавить новый канал
        </button>*/}
       <ul className="channel-list__items">
-        {this.props.channels.map(item => this.makeItem(item))}
+        {this.props.channels.map(item => this.makeItem(item, (this.props.current == item.id)))}
       </ul>
     </div>
   }

@@ -18,3 +18,9 @@
   }
 }
 */
+
+.channel-list-item {
+  &_active {
+    background-color: red;
+  }
+}
