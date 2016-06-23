@@ -16,8 +16,10 @@ export default class ChannelShow extends React.Component {
 
 
   render() {
+    let channel = this.state;
     return (<div className="channel-show">
-      state {this.state.id}
+      <div className="channel-show__name"><img className="channel-show__image" src={channel.img} alt="channel image"/>{channel.name}</div>
+      <div className="channel-show__description">{channel.description}</div>
     </div>);
   }
 
@@ -29,13 +31,9 @@ export default class ChannelShow extends React.Component {
   _findCurrentChannel(id) {
     let channels = JSON.parse(localStorage['channels']);
     let res = channels.find(item => {
-      if (item.id == (id || this.props.params.id)) return item
+      if (item.id == (id || this.props.params.id)) return item;
     });
 
-    this.setState({
-      id: res.id,
-      name: res.name
-
-    });
+    this.setState(res);
   }
 }
