@@ -7,8 +7,7 @@ import ChannelEdit from "./channelEdit";
 import NotFound from "./notFound";
 
 
-
-function _storageUpdate(id=1, action='show') {
+function _storageUpdate(id = 1, action = 'show') {
   localStorage['currentChannel'] = id;
   localStorage['currentAction'] = action;
 }
@@ -24,20 +23,23 @@ export default [{
     }
   },
   childRoutes: [
-    {path: '/add', component: ChannelAdd},
     {
+      path: '/add',
+      component: ChannelAdd
+    }, {
       path: '/edit/:id',
       component: ChannelEdit,
       onEnter: (nextState, replace) => {
         _storageUpdate(extState.params.id, 'edit');
       }
-    },
-    {
+    }, {
       path: '/show/:id', component: ChannelShow,
       onEnter: (nextState, replace) => {
         _storageUpdate(nextState.params.id, 'show');
       }
-    },
-    {path: '*', component: NotFound}
+    }, {
+      path: '*',
+      component: NotFound
+    }
   ]
 }]
