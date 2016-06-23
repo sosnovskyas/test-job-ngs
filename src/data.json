@@ -4,103 +4,120 @@
       "id": 1,
       "name": "channel 1",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
-      "description": "The channel number 1"
+      "description": "The channel number 1",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 2,
       "name": "channel 2",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
-      "description": "The channel number 2"
+      "description": "The channel number 2",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 3,
       "name": "channel 3",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
-      "description": "The channel number 3"
+      "description": "The channel number 3",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 4,
       "name": "channel 4",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
-      "description": "The channel number 4"
+      "description": "The channel number 4",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 5,
       "name": "channel 5",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
-      "description": "The channel number 5"
+      "description": "The channel number 5",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 6,
       "name": "channel 6",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
-      "description": "The channel number 6"
+      "description": "The channel number 6",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 7,
       "name": "channel 7",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
-      "description": "The channel number 7"
+      "description": "The channel number 7",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 8,
       "name": "channel 2",
       "img": "./ch2.jpg",
-      "description": "The channel number 2"
+      "description": "The channel number 2",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 9,
       "name": "channel 3",
       "img": "./ch3.jpg",
-      "description": "The channel number 3"
+      "description": "The channel number 3",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 10,
       "name": "channel 4",
       "img": "./ch4.jpg",
-      "description": "The channel number 4"
+      "description": "The channel number 4",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 11,
       "name": "channel 1",
       "img": "./ch1.jpg",
-      "description": "The channel number 1"
+      "description": "The channel number 1",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 12,
       "name": "channel 2",
       "img": "./ch2.jpg",
-      "description": "The channel number 2"
+      "description": "The channel number 2",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 13,
       "name": "channel 2",
       "img": "./ch2.jpg",
-      "description": "The channel number 2"
+      "description": "The channel number 2",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 14,
       "name": "channel 4",
       "img": "./ch4.jpg",
-      "description": "The channel number 4"
+      "description": "The channel number 4",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 15,
       "name": "channel 1",
       "img": "./ch1.jpg",
-      "description": "The channel number 1"
+      "description": "The channel number 1",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 16,
       "name": "channel 2",
       "img": "./ch2.jpg",
-      "description": "The channel number 2"
+      "description": "The channel number 2",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 17,
       "name": "channel 2",
       "img": "./ch2.jpg",
-      "description": "The channel number 2"
+      "description": "The channel number 2",
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 18,
