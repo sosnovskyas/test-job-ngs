@@ -1,5 +1,7 @@
 'use strict';
 
+import './channelShowItem.scss'
+
 import React from "react";
 
 export default class ChannelShowItem extends React.Component {
