@@ -1,7 +1,7 @@
 "use strict";
 
 import React from "react";
-import serverApi from "./serverApi";
+import serverApi from "./api";
 import ChannelList from "./channelList";
 
 // export default React.createClass({

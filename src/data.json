@@ -2,24 +2,24 @@
   "channels": [
     {
       "id": 1,
-      "name": "channel 1",
+      "name": "РБК - Главные новости",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
       "description": "The channel number 1",
       "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
     },
     {
       "id": 2,
-      "name": "channel 2",
+      "name": "РБК - новости политики",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
       "description": "The channel number 2",
-      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/politics.rss"
     },
     {
       "id": 3,
-      "name": "channel 3",
+      "name": "РБК - Новости экономики",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png",
       "description": "The channel number 3",
-      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
+      "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/economics.rss"
     },
     {
       "id": 4,

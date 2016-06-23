@@ -10,30 +10,62 @@ export default class ChannelShow extends React.Component {
 
   }
 
+  state = {
+    id: '',
+    name: '',
+    description: '',
+    url:''
+  };
+
   componentWillMount() {
-    this._findCurrentChannel();
+    this._getChannel();
   }
 
 
   render() {
     let channel = this.state;
+    let feed = [];
+    if (channel.feed) {
+      channel.feed.map(item => feed.push(item));
+    } else {
+      console.log('magic');
+    }
+
     return (<div className="channel-show">
-      <div className="channel-show__name"><img className="channel-show__image" src={channel.img} alt="channel image"/>{channel.name}</div>
+      <div className="channel-show__name"><img className="channel-show__image" src={channel.img}
+                                               alt="channel image"/>{channel.name}</div>
       <div className="channel-show__description">{channel.description}</div>
+      <div className="channel-show__text">feed: {feed.map(item => {
+        return <div key={item.guid}>
+          <div>Автор: {item.author}</div>
+          <div>Дата: {item.date}</div>
+          <div>{item.title}</div>
+          <div>{item.description}</div>
+          <hr/>
+        </div>
+      })}</div>
     </div>);
   }
 
   componentWillReceiveProps(nextProps) {
-    this._findCurrentChannel(nextProps.params.id);
+    this._getChannel(nextProps.params.id);
   }
 
-
-  _findCurrentChannel(id) {
+  _getChannel(id) {
     let channels = JSON.parse(localStorage['channels']);
     let res = channels.find(item => {
       if (item.id == (id || this.props.params.id)) return item;
     });
 
-    this.setState(res);
+    feednami.load.call(this, res.url, (result)=> {
+      if (result.error) {
+        console.log(result.error)
+      }
+      else {
+        res.feed = result.feed.entries;
+        // console.log(res.feed.map(item => {console.log(item.guid)}));
+        this.setState(res);
+      }
+    });
   }
 }
