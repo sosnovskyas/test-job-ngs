@@ -17,6 +17,7 @@ export default class ChannelShowItem extends React.Component {
     let item = this.state;
     return (<div className="channel-show-item">
       <div className="channel-show-item__left">
+        <div className="channel-show-item__date">{item.date}</div>
         {this._getImage(item)}
       </div>
       <div className="channel-show-item__right">
@@ -29,7 +30,7 @@ export default class ChannelShowItem extends React.Component {
           </a>
         </div>
         <div className="channel-show-item__author">Автор: {item.author}</div>
-        <div className="channel-show-item__date">Дата: {item.date}</div>
+
 
         {/* на всякий случай надо почистить от тегов*/}
         <div className="channel-show-item__text">
