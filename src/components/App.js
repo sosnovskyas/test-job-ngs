@@ -6,6 +6,10 @@ import ChannelList from "./channelList";
 import Display from "./display";
 
 export default React.createClass({
+  componentWillReceiveProps(nextProps){
+    this.updateStorageToState();
+  },
+
   getInitialState(){
     return {channels: []}
   },
@@ -19,17 +23,20 @@ export default React.createClass({
     serverApi.getChannels()
       .then(channels => {
         localStorage['channels'] = JSON.stringify(channels);
-        this.setState({
-          channels: localStorage['channels'] ? JSON.parse(localStorage['channels']) : [],
-          currentChannel: localStorage['currentChannel'] ? localStorage['currentChannel'] : 1,
-          currentAction: localStorage['currentAction'] ? localStorage['currentAction'] : 'show'
-        });
-
+        this.updateStorageToState();
       })
       .catch(err => {
         alert('Получение списка каналов с сервера произошло с ошибкой: ', err);
         this.setState({channels: []});
       });
+  },
+
+  updateStorageToState() {
+    this.setState({
+      channels: localStorage['channels'] ? JSON.parse(localStorage['channels']) : [],
+      currentChannel: localStorage['currentChannel'] ? localStorage['currentChannel'] : 1,
+      currentAction: localStorage['currentAction'] ? localStorage['currentAction'] : 'show'
+    });
   },
 
   render() {
