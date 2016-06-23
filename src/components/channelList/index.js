@@ -5,8 +5,8 @@ import ChannelListItem from "../channelListItem";
 import {Link} from "react-router";
 
 export default class ChannelList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   makeItem(item, active) {
