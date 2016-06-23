@@ -6,23 +6,22 @@ import ChannelAdd from "./channelAdd";
 import ChannelEdit from "./channelEdit";
 import NotFound from "./notFound";
 
-/*
- export default (
- <Route path="/" component={App}>
- <IndexRoute component={ChannelShow}/>
- <Route path="/add" component={ChannelAdd} />
- <Route path="/edit/:id" component={ChannelEdit} />
- <Route path="*" component={NotFound}/>
- </Route>
- );
- */
+
+
+function _storageUpdate(id=1, action='show') {
+  localStorage['currentChannel'] = id;
+  localStorage['currentAction'] = action;
+}
 
 export default [{
   path: '/',
   component: App,
   indexRoute: {
     component: ChannelShow,
-    onEnter: (nextState, replace) => replace(`/show/${localStorage['currentChannel']}`)
+    onEnter: (nextState, replace) => {
+      _storageUpdate();
+      replace(`/show/${localStorage['currentChannel']}`)
+    }
   },
   childRoutes: [
     {path: '/add', component: ChannelAdd},
@@ -30,15 +29,13 @@ export default [{
       path: '/edit/:id',
       component: ChannelEdit,
       onEnter: (nextState, replace) => {
-        localStorage['currentChannel'] = nextState.params.id;
-        localStorage['currentAction'] = 'edit';
+        _storageUpdate(extState.params.id, 'edit');
       }
     },
     {
       path: '/show/:id', component: ChannelShow,
       onEnter: (nextState, replace) => {
-        localStorage['currentChannel'] = nextState.params.id;
-        localStorage['currentAction'] = 'show';
+        _storageUpdate(nextState.params.id, 'show');
       }
     },
     {path: '*', component: NotFound}
