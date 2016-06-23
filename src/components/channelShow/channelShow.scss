@@ -4,5 +4,14 @@
   @extend .box;
 
   flex: 1 70%;
+
+  display: flex;
+  flex-flow: column nowrap;
+
   background-color: #6B90D4;
+
+  &__list{
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
 }

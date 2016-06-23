@@ -14,7 +14,7 @@ export default class ChannelShow extends React.Component {
     id: '',
     name: '',
     description: '',
-    url:''
+    url: ''
   };
 
   componentWillMount() {
@@ -25,6 +25,8 @@ export default class ChannelShow extends React.Component {
   render() {
     let channel = this.state;
     let feed = [];
+
+    // feednami library fix: first time, answer - undefined
     if (channel.feed) {
       channel.feed.map(item => feed.push(item));
     } else {
@@ -35,15 +37,17 @@ export default class ChannelShow extends React.Component {
       <div className="channel-show__name"><img className="channel-show__image" src={channel.img}
                                                alt="channel image"/>{channel.name}</div>
       <div className="channel-show__description">{channel.description}</div>
-      <div className="channel-show__text">feed: {feed.map(item => {
-        return <div key={item.guid}>
-          <div>Автор: {item.author}</div>
-          <div>Дата: {item.date}</div>
-          <div>{item.title}</div>
-          <div>{item.description}</div>
-          <hr/>
-        </div>
-      })}</div>
+      <div className="channel-show__list">
+        {feed.map(item => {
+          return <div key={item.guid} className="channel-show__list-item">
+            <div>Автор: {item.author}</div>
+            <div>Дата: {item.date}</div>
+            <div>{item.title}</div>
+            <div>{item.description}</div>
+            <hr/>
+          </div>
+        })}
+      </div>
     </div>);
   }
 
