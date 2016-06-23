@@ -9,8 +9,9 @@ export default React.createClass({
   getInitialState(){
     return {channels: []}
   },
-  
-  componentDidMount(){
+
+  componentWillMount(){
+    window.addEventListener('storage', ()=> console.log('CHANGE'));
     this.updateChannels();
   },
 
@@ -19,8 +20,9 @@ export default React.createClass({
       .then(channels => {
         localStorage['channels'] = JSON.stringify(channels);
         this.setState({
-          channels: JSON.parse(localStorage['channels']),
-          currentChannel: localStorage['currentChannel'] ? localStorage['currentChannel'] : 1
+          channels: localStorage['channels'] ? JSON.parse(localStorage['channels']) : [],
+          currentChannel: localStorage['currentChannel'] ? localStorage['currentChannel'] : 1,
+          currentAction: localStorage['currentAction'] ? localStorage['currentAction'] : 'show'
         });
 
       })

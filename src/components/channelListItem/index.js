@@ -1,6 +1,6 @@
 import React from "react";
-
-import './channelListItem.scss'
+import "./channelListItem.scss";
+import {Link} from "react-router";
 
 export default class ChannelListItem extends React.Component {
   constructor() {
@@ -9,19 +9,21 @@ export default class ChannelListItem extends React.Component {
 
   render() {
     let item = this.props.item;
-    let active = this.props.active ? 'channel-list-item_active':'' ;
+    let active = this.props.active ? 'channel-list-item_active' : '';
     return <li className={"channel-list-item " + active}>
-      <div className="channel-list-item__left">
-        <img src={item.img} alt=""/>
-      </div>
-      <div className="channel-list-item__right">
-        <div>
-          {item.name}
+      <Link to={"/show/"+item.id}>
+        <div className="channel-list-item__left">
+          <img src={item.img} alt=""/>
         </div>
-        <div>
-          {item.description}
+        <div className="channel-list-item__right">
+          <div>
+            {item.name}
+          </div>
+          <div>
+            {item.description}
+          </div>
         </div>
-      </div>
+      </Link>
     </li>;
   }
 }
