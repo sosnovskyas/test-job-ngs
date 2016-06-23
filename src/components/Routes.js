@@ -18,7 +18,6 @@ export default [{
   indexRoute: {
     component: ChannelShow,
     onEnter: (nextState, replace) => {
-      _storageUpdate();
       replace(`/show/${localStorage['currentChannel']}`)
     }
   },
