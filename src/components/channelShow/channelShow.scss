@@ -1,0 +1,8 @@
+@import './../../_common.scss';
+
+.channel-show {
+  @extend .box;
+
+  flex: 1 70%;
+  background-color: #6B90D4;
+}
