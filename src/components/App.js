@@ -4,18 +4,13 @@ import React from "react";
 import serverApi from "./serverApi";
 import ChannelList from "./channelList";
 
-export default React.createClass({
-  componentWillReceiveProps(nextProps){
-    this._stateUpdate();
-  },
+// export default React.createClass({
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-  getInitialState(){
-    return {channels: []}
-  },
+  }
 
-  componentWillMount(){
-    this._channelsUpdate();
-  },
 
   _channelsUpdate() {
     serverApi.getChannels()
@@ -36,7 +31,7 @@ export default React.createClass({
       });
 
     this._stateUpdate();
-  },
+  }
 
   _stateUpdate() {
     try {
@@ -45,11 +40,11 @@ export default React.createClass({
         currentChannel: localStorage['currentChannel'],
         currentAction: localStorage['currentAction']
       });
-    } catch(err) {
+    } catch (err) {
       new Error("_stateUpdate: ", err);
     }
 
-  },
+  }
 
   render() {
     return (<div className="app">
@@ -57,4 +52,14 @@ export default React.createClass({
       {this.props.children}
     </div>)
   }
-})
+  
+  componentWillMount() {
+    this._channelsUpdate();
+  }
+
+  componentWillReceiveProps() {
+    this._stateUpdate();
+  }
+
+
+}
