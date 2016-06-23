@@ -1,14 +1,14 @@
 'use strict';
 
 import "./styles.scss";
-import serverApi from "./components/serverApi";
+import api from "./components/api";
 import React from "react";
 import {render} from "react-dom";
 import {Router, browserHistory} from "react-router";
 import routes from "./components/Routes";
 
 
-serverApi.getChannels()
+api.getChannels()
   .then(result => {
     let channels = '';
 

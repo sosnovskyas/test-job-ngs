@@ -36,10 +36,10 @@ server.use('/api/data', (req, res) => (
 ));
 
 server.use('/', (req, res) => (
-  res.render('index', { title: 'Hey', message: 'Hello there!'})
+  res.render('index', {title: 'Hey', message: 'Hello there!'})
 ));
 
-server.listen(PORT, 'localhost', err => {
+server.listen(PORT, '192.168.2.221', err => {
   if (err) console.log(`=> ERROR:  ${err}`);
   console.log(`=> Webpack server is running on port ${PORT}`);
 });

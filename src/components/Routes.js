@@ -15,13 +15,14 @@ function _storageUpdate(id = 1, action = 'show') {
 export default [{
   path: '/',
   component: App,
+
   indexRoute: {
     component: ChannelShow,
     onEnter: (nextState, replace) => {
-      _storageUpdate();
       replace(`/show/${localStorage['currentChannel']}`)
     }
   },
+
   childRoutes: [
     {
       path: '/add',
@@ -33,7 +34,8 @@ export default [{
         _storageUpdate(extState.params.id, 'edit');
       }
     }, {
-      path: '/show/:id', component: ChannelShow,
+      path: '/show/:id',
+      component: ChannelShow,
       onEnter: (nextState, replace) => {
         _storageUpdate(nextState.params.id, 'show');
       }

@@ -1,23 +1,19 @@
 "use strict";
 
 import React from "react";
-import serverApi from "./serverApi";
+import serverApi from "./api";
 import ChannelList from "./channelList";
-import Display from "./display";
 
-export default React.createClass({
-  componentWillReceiveProps(nextProps){
-    this._stateUpdate();
-  },
+// export default React.createClass({
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-  getInitialState(){
-    return {channels: []}
-  },
+  }
 
-  componentWillMount(){
-    window.addEventListener('storage', ()=> console.log('CHANGE'));
+  componentWillMount() {
     this._channelsUpdate();
-  },
+  }
 
   _channelsUpdate() {
     serverApi.getChannels()
@@ -33,12 +29,11 @@ export default React.createClass({
         }
       })
       .catch(err => {
-        // alert('Получение списка каналов с сервера произошло с ошибкой: ', err);
         new Error("Bad data from server: ", err);
       });
 
     this._stateUpdate();
-  },
+  }
 
   _stateUpdate() {
     try {
@@ -47,16 +42,23 @@ export default React.createClass({
         currentChannel: localStorage['currentChannel'],
         currentAction: localStorage['currentAction']
       });
-    } catch(err) {
+    } catch (err) {
       new Error("_stateUpdate: ", err);
     }
 
-  },
+  }
 
   render() {
     return (<div className="app">
       <ChannelList channels={this.state.channels} current={this.state.currentChannel}/>
-      <Display>{this.props.children}</Display>
+      {this.props.children}
     </div>)
   }
-})
+
+
+  componentWillReceiveProps() {
+    this._stateUpdate();
+  }
+
+
+}
