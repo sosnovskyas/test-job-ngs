@@ -10,7 +10,7 @@ export default class App extends React.Component {
     super(props);
 
   }
-  
+
   componentWillMount() {
     this._channelsUpdate();
   }
@@ -29,7 +29,6 @@ export default class App extends React.Component {
         }
       })
       .catch(err => {
-        // alert('Получение списка каналов с сервера произошло с ошибкой: ', err);
         new Error("Bad data from server: ", err);
       });
 
