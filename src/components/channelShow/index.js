@@ -3,6 +3,8 @@
 import "./channelShow.scss";
 import React from "react";
 
+import ChannelShowItem from './../channelShowItem'
+
 export default class ChannelShow extends React.Component {
 
   constructor(props) {
@@ -54,25 +56,7 @@ export default class ChannelShow extends React.Component {
 
       <div className="channel-show__list">
         {feed.map(item => {
-          function getImage() {
-            if (item.enclosures.length && item.enclosures[0].type == "image/jpeg") {
-              return <div>
-                <a href={item.link|| ''} target="_blank">
-                  <img src={item.enclosures[0].url} alt=""/>
-                </a>
-              </div>
-            }
-          }
-
-          return <div key={item.guid} className="channel-show__list-item">
-            {getImage()}
-            <div>Автор: {item.author}</div>
-            <div>Дата: {item.date}</div>
-            <div><a href={item.link|| ''} target="_blank">{item.title}</a></div>
-            {/* на всякий случай надо почистить от тегов*/}
-            <div>{(item.description || item.summary || '').replace(/<\/?[^>]+>/g, '')}</div>
-            <hr/>
-          </div>
+          return <ChannelShowItem item={item} key={item.guid} />
         })}
       </div>
     </div>);
