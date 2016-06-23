@@ -7,7 +7,7 @@ import Display from "./display";
 
 export default React.createClass({
   componentWillReceiveProps(nextProps){
-    this.updateStorageToState();
+    this._stateUpdate();
   },
 
   getInitialState(){
@@ -16,27 +16,41 @@ export default React.createClass({
 
   componentWillMount(){
     window.addEventListener('storage', ()=> console.log('CHANGE'));
-    this.updateChannels();
+    this._channelsUpdate();
   },
 
-  updateChannels() {
+  _channelsUpdate() {
     serverApi.getChannels()
-      .then(channels => {
-        localStorage['channels'] = JSON.stringify(channels);
-        this.updateStorageToState();
+      .then(result => {
+        let channels = '';
+
+        try {
+          channels = JSON.stringify(result);
+          localStorage['channels'] = channels;
+        } catch (err) {
+          localStorage['channels'] = '[]';
+          new Error("Bad data from server: ", err);
+        }
       })
       .catch(err => {
-        alert('Получение списка каналов с сервера произошло с ошибкой: ', err);
-        this.setState({channels: []});
+        // alert('Получение списка каналов с сервера произошло с ошибкой: ', err);
+        new Error("Bad data from server: ", err);
       });
+
+    this._stateUpdate();
   },
 
-  updateStorageToState() {
-    this.setState({
-      channels: localStorage['channels'] ? JSON.parse(localStorage['channels']) : [],
-      currentChannel: localStorage['currentChannel'] ? localStorage['currentChannel'] : 1,
-      currentAction: localStorage['currentAction'] ? localStorage['currentAction'] : 'show'
-    });
+  _stateUpdate() {
+    try {
+      this.setState({
+        channels: JSON.parse(localStorage['channels']),
+        currentChannel: localStorage['currentChannel'],
+        currentAction: localStorage['currentAction']
+      });
+    } catch(err) {
+      new Error("_stateUpdate: ", err);
+    }
+
   },
 
   render() {
