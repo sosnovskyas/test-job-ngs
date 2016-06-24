@@ -63,6 +63,45 @@ class Api {
 
     })
   }
+
+  formSubmit(event, callback) {
+    event.preventDefault();
+
+    let url = event.target.url;
+    let name = event.target.name;
+    let description = event.target.description;
+    let err = false;
+
+    if (!name.value) {
+      name.classList.add('channel-add__input_error');
+      err = true;
+    } else {
+      name.classList.remove('channel-add__input_error');
+      err = false;
+    }
+
+    if (!this._testUrl(url.value)) {
+      url.classList.add('channel-add__input_error');
+      err = true;
+    } else {
+      url.classList.remove('channel-add__input_error');
+      err = false;
+    }
+
+    if (err) return;
+
+    callback({
+      url: url.value,
+      name: name.value,
+      description: description.value
+    })
+  }
+  
+  _testUrl(url) {
+    const expression = /[-a-zA-Z0-9@:%_\+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&/=]*)?/gi;
+    const regex = new RegExp(expression);
+    return !!url.match(regex);
+  }
 }
 
 export default new Api();
