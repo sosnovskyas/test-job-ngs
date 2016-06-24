@@ -1,0 +1,19 @@
+@import './../../_common.scss';
+
+.channel-add {
+  @extend .box;
+  @extend .right-panel;
+
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__input {
+    width: 100%;
+    resize: none;
+    &_error {
+      background-color: tomato;
+    }
+  }
+}

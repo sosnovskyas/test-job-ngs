@@ -1,0 +1,11 @@
+@import './../../_common.scss';
+
+.channel-delete {
+  @extend .box;
+  @extend .right-panel;
+
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

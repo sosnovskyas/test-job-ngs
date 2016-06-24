@@ -1,0 +1,30 @@
+.channel-show-item {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 15px;
+
+  &__left {
+    flex: 1 25%;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__right {
+    flex: 1 75%;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__date {
+    
+  }
+
+  &__image {
+    width: 100%;
+    &-wrapper {
+      display: block;
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

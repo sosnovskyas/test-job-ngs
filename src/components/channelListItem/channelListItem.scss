@@ -1,0 +1,39 @@
+.channel-list-item {
+  &__link {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+
+    text-decoration: none;
+    color: #fff;
+
+    padding: 5px;
+  }
+
+  border-bottom: 1px solid #052A6E;
+
+
+
+  &:first-child {
+    border-top: 1px solid #052A6E;
+  }
+
+  &__left {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+
+    &-image {
+      width: 100%;
+    }
+  }
+
+  &__right {
+
+  }
+
+  &_active {
+    background-color: #29477F;
+  }
+}
