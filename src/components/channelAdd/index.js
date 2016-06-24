@@ -19,8 +19,8 @@ export default class ChannelAdd extends React.Component {
         Форма добавления нового канала
       </div>
       <form name="add">
-        <input type="text" name="name" placeholder="Название" required/>
-        <input type="url" name="url" placeholder="URL" required/>
+        <input type="text" name="name" placeholder="Название"/>
+        <input type="url" name="url" placeholder="URL"/>
         <input type="submit" value="добавить"/>
       </form>
     </div>)
@@ -37,16 +37,26 @@ export default class ChannelAdd extends React.Component {
 
     let url = event.target.url.value;
     let name = event.target.name.value;
+    let err = false;
+
+    if (!name) {
+      event.target.name.classList.add('channel-add__input_error');
+      err = true;
+    } else {
+      event.target.name.classList.remove('channel-add__input_error');
+      err = false;
+    }
 
     if (!this._testUrl(url)) {
       event.target.url.classList.add('channel-add__input_error');
-      event.target.url.focus();
-      return;
+      err = true;
     } else {
       event.target.url.classList.remove('channel-add__input_error');
+      err = false;
     }
 
-    console.log(name, url);
+    if(err) return;
 
+    console.log(name, url);
   }
 }
