@@ -3,6 +3,7 @@ import React from "react";
 import App from "./App";
 import ChannelShow from "./channelShow";
 import ChannelAdd from "./channelAdd";
+import ChannelDelete from "./channelDelete";
 import ChannelEdit from "./channelEdit";
 import NotFound from "./notFound";
 
@@ -32,13 +33,13 @@ export default [{
       path: '/edit/:id',
       component: ChannelEdit,
       onEnter: (nextState, replace) => {
-        _storageUpdate(extState.params.id, 'edit');
+        _storageUpdate(nextState.params.id, 'edit');
       }
     }, {
       path: '/delete/:id',
-      component: ChannelEdit,
+      component: ChannelDelete,
       onEnter: (nextState, replace) => {
-        _storageUpdate(extState.params.id, 'delete');
+        _storageUpdate(nextState.params.id, 'delete');
       }
     }, {
       path: '/show/:id',
