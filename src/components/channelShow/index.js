@@ -9,7 +9,7 @@ export default class ChannelShow extends React.Component {
 
   constructor(props) {
     super(props);
-
+    console.log('constructor');
   }
 
   state = {
@@ -20,7 +20,10 @@ export default class ChannelShow extends React.Component {
   };
 
   componentWillMount() {
+    console.log('willMount 1');
+
     this._getChannel();
+    console.log('willMount 2');
   }
 
 
@@ -34,7 +37,7 @@ export default class ChannelShow extends React.Component {
     } else {
       console.log('magic');
     }
-
+    console.log('debug');
     return (<div className="channel-show">
       <div className="channel-show__header">
         <div className="channel-show__image-wrapper">
@@ -75,8 +78,9 @@ export default class ChannelShow extends React.Component {
   _onClickEdit(channel) {
     browserHistory.push(`/edit/${channel.id}`)
   }
-  
+
   _getChannel(id) {
+
     let channels = JSON.parse(localStorage['channels']);
     let res = channels.find(item => {
       if (item.id == (id || this.props.params.id)) return item;
@@ -88,21 +92,25 @@ export default class ChannelShow extends React.Component {
       browserHistory.push(`/${localStorage['currentAction']}/${localStorage['currentChannel']}`)
     }
 
-    feednami.load.call(this, res.url, (result)=> {
-      if (result.error) {
-        console.log(result.error);
-        alert(`${result.error.code}: ${result.error.message}`);
-        res.feed = [];
-        res.avatar = '';
+    if (!res.url) {
+      alert('В двнных о канале новостей недостаточно данных для загрузки канала новостей: остутствует URL');
+    } else {
+      feednami.load.call(this, res.url, (result)=> {
+        if (result.error) {
+          console.log(result.error);
+          alert(`${result.error.code}: ${result.error.message}`);
+          res.feed = [];
+          res.avatar = '';
 
-        this.setState(res);
-      }
-      else {
-        res.feed = result.feed.entries;
-        res.avatar = result.feed.meta['rss:image'].url['#'];
+          this.setState(res);
+        }
+        else {
+          res.feed = result.feed.entries;
+          res.avatar = result.feed.meta['rss:image'].url['#'];
 
-        this.setState(res);
-      }
-    });
+          this.setState(res);
+        }
+      });
+    }
   }
 }

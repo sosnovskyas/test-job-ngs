@@ -14,7 +14,6 @@ export default class ChannelEdit extends React.Component {
 
   componentWillMount() {
     let channel = JSON.parse(localStorage['channels'])[this.props.params.id - 1];
-    console.log(channel);
     this.setState(channel);
   }
 
