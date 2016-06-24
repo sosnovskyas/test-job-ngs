@@ -20,10 +20,10 @@ export default class ChannelListItem extends React.Component {
         </div>
         <div className="channel-list-item__right">
           <div>
-            {item.name}
+            {(item.name || 'RSS channel')}
           </div>
           <div>
-            {item.description}
+            {(item.description || '')}
           </div>
         </div>
       </Link>

@@ -3,6 +3,8 @@
 import "./channelAdd.scss";
 import React from "react";
 
+import api from './../api'
+
 export default class ChannelAdd extends React.Component {
   constructor(props) {
     super(props);
@@ -62,6 +64,7 @@ export default class ChannelAdd extends React.Component {
 
     let url = event.target.url;
     let name = event.target.name;
+    let description = event.target.description;
     let err = false;
 
     if (!name.value) {
@@ -82,5 +85,28 @@ export default class ChannelAdd extends React.Component {
 
     if (err) return;
 
+    this._addChannel({
+      name: name.value,
+      description: description.value,
+      url: url.value
+    })
+  }
+
+  _addChannel(newChannel) {
+    // console.log(channel);
+    let channels = JSON.parse(localStorage['channels']);
+    let result = [];
+    let i = 0;
+
+    channels.map(item => {
+      i++;
+      item.id = i;
+      result.push(item);
+    });
+
+    newChannel.id = ++i;
+    result.push(newChannel);
+
+    api.setChannelList(result);
   }
 }
