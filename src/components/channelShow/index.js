@@ -82,9 +82,10 @@ export default class ChannelShow extends React.Component {
   _getChannel(id) {
 
     let channels = JSON.parse(localStorage['channels']);
-    let res = channels.find(item => {
-      if (item.id == (id || this.props.params.id)) return item;
-    });
+    let res;
+    for (let i = 0; i < channels.length; i++) {
+      if (channels[i].id == (id || this.props.params.id)) res = channels[i];
+    }
 
     if (!res) {
       res = channels[0];
