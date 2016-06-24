@@ -99,7 +99,7 @@ export default class ChannelShow extends React.Component {
       feednami.load.call(this, res.url, (result)=> {
         if (result.error) {
           console.log(result.error);
-          alert(`${result.error.code}: ${result.error.message}`);
+          alert(`По данному URL неаозможно получить данные канала новостей\n${result.error.code}: ${result.error.message}`);
           res.feed = [];
           res.avatar = '';
 
