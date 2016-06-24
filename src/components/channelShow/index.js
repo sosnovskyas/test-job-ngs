@@ -90,21 +90,23 @@ export default class ChannelShow extends React.Component {
     if (!res.url) {
       alert('В двнных о канале новостей недостаточно данных для загрузки канала новостей: остутствует URL');
     } else {
-      feednami.load.call(this, res.url, (result)=> {
-        if (result.error) {
-          alert(`По данному URL неаозможно получить данные канала новостей\n${result.error.code}: ${result.error.message}`);
-          res.feed = [];
-          res.avatar = '';
+      feednami.load.call(this, res.url, result => this._getFeedHandler(result, res));
+    }
+  }
 
-          this.setState(res);
-        }
-        else {
-          res.feed = result.feed.entries;
-          res.avatar = result.feed.meta['rss:image'].url['#'];
+  _getFeedHandler(result, res) {
+    if (result.error) {
+      alert(`По данному URL неаозможно получить данные канала новостей\n${result.error.code}: ${result.error.message}`);
+      res.feed = [];
+      res.avatar = '';
 
-          this.setState(res);
-        }
-      });
+      this.setState(res);
+    }
+    else {
+      res.feed = result.feed.entries;
+      res.avatar = result.feed.meta['rss:image'].url['#'];
+
+      this.setState(res);
     }
   }
 }

@@ -1,5 +1,6 @@
 "use strict";
 
+import "./notFound.scss";
 import React from "react";
 
 export default class NotFound extends React.Component {
@@ -8,6 +9,6 @@ export default class NotFound extends React.Component {
   }
 
   render() {
-    return (<div>404 - Not found</div>)
+    return (<div className="not-found">404 - Not found</div>)
   }
 }

@@ -15,9 +15,16 @@ export default class ChannelShowItem extends React.Component {
 
   render() {
     let item = this.state;
+    var pubDate = item.date;
+    var date = new Date(pubDate);
+
+    var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    var resDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()
+
+
     return (<div className="channel-show-item">
       <div className="channel-show-item__left">
-        <div className="channel-show-item__date">{item.date}</div>
+        <div className="channel-show-item__date">{resDate}</div>
         {this._getImage(item)}
       </div>
       <div className="channel-show-item__right">
