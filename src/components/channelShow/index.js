@@ -85,6 +85,10 @@ export default class ChannelShow extends React.Component {
       if (result.error) {
         console.log(result.error);
         alert(`${result.error.code}: ${result.error.message}`);
+        res.feed = [];
+        res.avatar = '';
+
+        this.setState(res);
       }
       else {
         res.feed = result.feed.entries;
