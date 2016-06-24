@@ -55,7 +55,7 @@ server.use('/', (req, res) => (
   res.render('index', {})
 ));
 
-server.listen(PORT, '192.168.2.221', err => {
+server.listen(PORT, 'localhost', err => {
   if (err) console.log(`=> ERROR:  ${err}`);
   console.log(`=> Webpack server is running on port ${PORT}`);
 });
