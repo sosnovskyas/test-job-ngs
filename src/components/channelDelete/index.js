@@ -49,7 +49,6 @@ export default class ChannelDelete extends React.Component {
       i++;
       item.id = i;
       result.push(item);
-      console.log(item)
     });
 
     api.setChannelList(result)
