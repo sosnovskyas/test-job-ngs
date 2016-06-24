@@ -8,7 +8,7 @@ import {Router, browserHistory} from "react-router";
 import routes from "./components/Routes";
 
 
-api.getChannels()
+api.getChannelList()
   .then(result => {
     let channels = '';
 

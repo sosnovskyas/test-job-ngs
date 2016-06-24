@@ -2,8 +2,11 @@
 
 import "./channelShow.scss";
 import React from "react";
+import { browserHistory } from 'react-router'
 
 import ChannelShowItem from './../channelShowItem'
+
+import api from './../api'
 
 export default class ChannelShow extends React.Component {
 
@@ -49,7 +52,7 @@ export default class ChannelShow extends React.Component {
         </div>
 
         <div className="channel-show__control">
-          <input type="button" value="изменить" className="channel-show__control-edit"/>
+          <input type="button" value="изменить" className="channel-show__control-edit" onClick={api.setChannelList}/>
           <input type="button" value="удалить" className="channel-show__control-delete"/>
         </div>
       </div>
@@ -71,6 +74,12 @@ export default class ChannelShow extends React.Component {
     let res = channels.find(item => {
       if (item.id == (id || this.props.params.id)) return item;
     });
+
+    if(!res){
+      res = channels[0];
+      localStorage['currentChannel'] = channels[0].id;
+      browserHistory.push(`/${localStorage['currentAction']}/${localStorage['currentChannel']}`)
+    }
 
     feednami.load.call(this, res.url, (result)=> {
       if (result.error) {
