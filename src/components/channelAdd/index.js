@@ -2,8 +2,8 @@
 
 import "./channelAdd.scss";
 import React from "react";
-
-import api from './../api'
+import {browserHistory} from "react-router";
+import api from "./../api";
 
 export default class ChannelAdd extends React.Component {
   constructor(props) {
@@ -93,10 +93,12 @@ export default class ChannelAdd extends React.Component {
   }
 
   _addChannel(newChannel) {
-    // console.log(channel);
     let channels = JSON.parse(localStorage['channels']);
     let result = [];
     let i = 0;
+
+    newChannel.id = ++i;
+    result.push(newChannel);
 
     channels.map(item => {
       i++;
@@ -104,9 +106,11 @@ export default class ChannelAdd extends React.Component {
       result.push(item);
     });
 
-    newChannel.id = ++i;
-    result.push(newChannel);
+    api.setChannelList(result)
+      .then(data => {
+        localStorage['channels'] = JSON.stringify(data);
+        browserHistory.push(`/show/${newChannel.id}`)
+      });
 
-    api.setChannelList(result);
   }
 }
