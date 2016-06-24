@@ -2,13 +2,7 @@
 
 .channel-show {
   @extend .box;
-
-  flex: 1 70%;
-
-  display: flex;
-  flex-flow: column nowrap;
-
-  background-color: #6B90D4;
+  @extend .right-panel;
 
   &__list {
     flex: 1 1 auto;

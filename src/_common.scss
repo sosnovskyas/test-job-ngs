@@ -4,3 +4,13 @@
 
   padding: 10px;
 }
+
+.right-panel {
+  flex: 1 70%;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  background-color: #6B90D4;
+
+}
