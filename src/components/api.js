@@ -59,16 +59,7 @@ class Api {
       xhr.onerror = () => {
         reject(new Error("Network Error"));
       };
-
-      data = JSON.stringify([{
-        "id": 14,
-        "name": "channel 4",
-        "img": "./ch4.jpg",
-        "description": "The channel number 4",
-        "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
-      }]);
-      console.log('send', data);
-      xhr.send(data);
+      xhr.send(JSON.stringify(data));
 
     })
   }
