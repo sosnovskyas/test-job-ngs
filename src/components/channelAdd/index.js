@@ -26,11 +26,25 @@ export default class ChannelAdd extends React.Component {
     </div>)
   }
 
+  _testUrl(url) {
+    const expression = /[-a-zA-Z0-9@:%_\+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&/=]*)?/gi;
+    const regex = new RegExp(expression);
+    return !!url.match(regex);
+  }
+
   _onSubmit(event) {
     event.preventDefault();
 
     let url = event.target.url.value;
     let name = event.target.name.value;
+
+    if (!this._testUrl(url)) {
+      event.target.url.classList.add('channel-add__input_error');
+      event.target.url.focus();
+      return;
+    } else {
+      event.target.url.classList.remove('channel-add__input_error');
+    }
 
     console.log(name, url);
 

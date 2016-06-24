@@ -3,4 +3,10 @@
 .channel-add {
   @extend .box;
   @extend .right-panel;
+
+  &__input {
+    &_error {
+      background-color: tomato;
+    }
+  }
 }
