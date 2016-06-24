@@ -53,43 +53,9 @@ export default class ChannelAdd extends React.Component {
     </div>)
   }
 
-  _testUrl(url) {
-    const expression = /[-a-zA-Z0-9@:%_\+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&/=]*)?/gi;
-    const regex = new RegExp(expression);
-    return !!url.match(regex);
-  }
 
   _onSubmit(event) {
-    event.preventDefault();
-
-    let url = event.target.url;
-    let name = event.target.name;
-    let description = event.target.description;
-    let err = false;
-
-    if (!name.value) {
-      name.classList.add('channel-add__input_error');
-      err = true;
-    } else {
-      name.classList.remove('channel-add__input_error');
-      err = false;
-    }
-
-    if (!this._testUrl(url.value)) {
-      url.classList.add('channel-add__input_error');
-      err = true;
-    } else {
-      url.classList.remove('channel-add__input_error');
-      err = false;
-    }
-
-    if (err) return;
-
-    this._addChannel({
-      name: name.value,
-      description: description.value,
-      url: url.value
-    })
+    api.formSubmit(event, result => this._addChannel(result))
   }
 
   _addChannel(newChannel) {

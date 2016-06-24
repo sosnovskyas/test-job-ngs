@@ -49,7 +49,8 @@ export default class ChannelShow extends React.Component {
         </div>
 
         <div className="channel-show__control">
-          <input type="button" value="изменить" className="channel-show__control-edit"/>
+          <input type="button" value="изменить" className="channel-show__control-edit"
+                 onClick={()=>this._onClickEdit(channel)}/>
           <input type="button" value="удалить" className="channel-show__control-delete"
                  onClick={()=>this._onClickDelete(channel)}/>
         </div>
@@ -71,6 +72,10 @@ export default class ChannelShow extends React.Component {
     browserHistory.push(`/delete/${channel.id}`)
   }
 
+  _onClickEdit(channel) {
+    browserHistory.push(`/edit/${channel.id}`)
+  }
+  
   _getChannel(id) {
     let channels = JSON.parse(localStorage['channels']);
     let res = channels.find(item => {
