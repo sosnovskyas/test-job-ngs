@@ -16,10 +16,27 @@ export default class App extends React.Component {
   }
 
   _channelsUpdate() {
-    serverApi.getChannels()
+    /*
+     serverApi.getChannels()
+     .then(result => {
+     let channels = '';
+
+     try {
+     channels = JSON.stringify(result);
+     localStorage['channels'] = channels;
+     } catch (err) {
+     localStorage['channels'] = '[]';
+     new Error("Bad data from server: ", err);
+     }
+     })
+     .catch(err => {
+     new Error("Bad data from server: ", err);
+     });
+     */
+    
+    serverApi.getChannelList()
       .then(result => {
         let channels = '';
-
         try {
           channels = JSON.stringify(result);
           localStorage['channels'] = channels;
