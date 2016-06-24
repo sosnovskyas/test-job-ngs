@@ -15,7 +15,7 @@ export default class ChannelListItem extends React.Component {
         <div className="channel-list-item__left">
           <img
             className="channel-list-item__left-image"
-            src={item.img}
+            src="https://upload.wikimedia.org/wikipedia/commons/9/90/30x-Radio-Tower.png"
             alt="channel image"/>
         </div>
         <div className="channel-list-item__right">
