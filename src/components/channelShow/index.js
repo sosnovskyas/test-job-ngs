@@ -43,12 +43,12 @@ export default class ChannelShow extends React.Component {
         <div className="channel-show__image-wrapper">
           <img
             className="channel-show__image"
-            src={channel.avatar||channel.img}
+            src={channel.avatar||channel.img||''}
             alt="channel image"/>
         </div>
         <div>
-          <div className="channel-show__name">{channel.name}</div>
-          <div className="channel-show__description">{channel.description}</div>
+          <div className="channel-show__name">{(channel.name || 'RSS channel')}</div>
+          <div className="channel-show__description">{(channel.description || 'empty description')}</div>
         </div>
 
         <div className="channel-show__control">
@@ -83,7 +83,12 @@ export default class ChannelShow extends React.Component {
 
     feednami.load.call(this, res.url, (result)=> {
       if (result.error) {
-        console.log(result.error)
+        console.log(result.error);
+        alert(`${result.error.code}: ${result.error.message}`);
+        res.feed = [];
+        res.avatar = '';
+
+        this.setState(res);
       }
       else {
         res.feed = result.feed.entries;

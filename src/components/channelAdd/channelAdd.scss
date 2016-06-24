@@ -1,21 +1,19 @@
-/*
+@import './../../_common.scss';
+
 .channel-add {
-  border: none;
-  outline: none;
-  background-color: rgba(0, 0, 0, 0);
-  &__plus {
-    border-radius: 50%;
+  @extend .box;
+  @extend .right-panel;
 
-    width: 14px;
-    height: 14px;
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+  }
 
-    background-color: greenyellow;
-    border: 2px solid greenyellow;
-    text-align: center;
-
-    color: #000;
-
-    float: left;
+  &__input {
+    width: 100%;
+    resize: none;
+    &_error {
+      background-color: tomato;
+    }
   }
 }
-*/

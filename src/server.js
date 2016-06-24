@@ -44,10 +44,7 @@ server.get('/api/channels', (req, res) => {
 });
 
 server.post('/api/channels', (req, res) => {
-  console.log(req.body);
-
   fs.writeFileSync(path.join(__dirname, 'channels.json'), JSON.stringify(req.body), 'utf8');
-
   fs.readFile(path.join(__dirname, 'channels.json'), (err, data) => {
     if (err) throw err;
     res.json(JSON.parse(data))
