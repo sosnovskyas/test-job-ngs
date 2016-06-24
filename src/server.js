@@ -62,21 +62,7 @@ server.use('/', (req, res) => (
   res.render('index', {title: 'Hey', message: 'Hello there!'})
 ));
 
-server.post('/api/data', function(req, res) {
-  // if(!req.body.hasOwnProperty('author') ||
-  //   !req.body.hasOwnProperty('text')) {
-  //   res.statusCode = 400;
-  //   return res.send('Error 400: Post syntax incorrect.');
-  // }
-  //
-  // var newQuote = {
-  //   author : req.body.author,
-  //   text : req.body.text
-  // };
-  //
-  // quotes.push(newQuote);
-  res.json(true);
-});
+
 server.listen(PORT, '192.168.2.221', err => {
   if (err) console.log(`=> ERROR:  ${err}`);
   console.log(`=> Webpack server is running on port ${PORT}`);
