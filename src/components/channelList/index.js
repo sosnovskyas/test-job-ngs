@@ -12,11 +12,7 @@ export default class ChannelList extends React.Component {
   makeItem(item, active) {
     return <ChannelListItem item={item} key={item.id} active={active}/>
   }
-
-  onAdd() {
-    console.log('add ');
-  }
-
+  
   render() {
     return <div className="channel-list">
       <Link to="/add" className="channel-list__add"><span className="channel-list__add-plus">+</span> Добавить новый

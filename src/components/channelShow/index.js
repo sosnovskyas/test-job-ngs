@@ -9,7 +9,6 @@ export default class ChannelShow extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('constructor');
   }
 
   state = {
@@ -20,10 +19,7 @@ export default class ChannelShow extends React.Component {
   };
 
   componentWillMount() {
-    console.log('willMount 1');
-
     this._getChannel();
-    console.log('willMount 2');
   }
 
 
@@ -34,10 +30,8 @@ export default class ChannelShow extends React.Component {
     // feednami library fix: first time, answer - undefined
     if (channel.feed) {
       channel.feed.map(item => feed.push(item));
-    } else {
-      console.log('magic');
     }
-    console.log('debug');
+
     return (<div className="channel-show">
       <div className="channel-show__header">
         <div className="channel-show__image-wrapper">
@@ -98,7 +92,6 @@ export default class ChannelShow extends React.Component {
     } else {
       feednami.load.call(this, res.url, (result)=> {
         if (result.error) {
-          console.log(result.error);
           alert(`По данному URL неаозможно получить данные канала новостей\n${result.error.code}: ${result.error.message}`);
           res.feed = [];
           res.avatar = '';
