@@ -20,7 +20,7 @@ export default [{
   indexRoute: {
     component: ChannelShow,
     onEnter: (nextState, replace) => {
-      const route = `/show/${(localStorage['currentChannel'] || 1)}`;
+      const route = `/${(localStorage['currentAction'] || 'show')}/${(localStorage['currentChannel'] || 1)}`;
       replace(route)
     }
   },
