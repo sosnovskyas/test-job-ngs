@@ -1,0 +1,7 @@
+@import './../../_common.scss';
+
+.not-found {
+  @extend .box;
+  @extend .right-panel;
+
+}
