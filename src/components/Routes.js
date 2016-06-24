@@ -45,6 +45,7 @@ export default [{
       path: '/show/:id',
       component: ChannelShow,
       onEnter: (nextState, replace) => {
+        if(JSON.parse(localStorage['channels']).length == 0) replace('/add');
         _storageUpdate(nextState.params.id, 'show');
       }
     }, {
