@@ -2,11 +2,8 @@
 
 import "./channelShow.scss";
 import React from "react";
-import { browserHistory } from 'react-router'
-
-import ChannelShowItem from './../channelShowItem'
-
-import api from './../api'
+import {browserHistory} from "react-router";
+import ChannelShowItem from "./../channelShowItem";
 
 export default class ChannelShow extends React.Component {
 
@@ -52,14 +49,15 @@ export default class ChannelShow extends React.Component {
         </div>
 
         <div className="channel-show__control">
-          <input type="button" value="изменить" className="channel-show__control-edit" onClick={api.setChannelList}/>
-          <input type="button" value="удалить" className="channel-show__control-delete"/>
+          <input type="button" value="изменить" className="channel-show__control-edit"/>
+          <input type="button" value="удалить" className="channel-show__control-delete"
+                 onClick={()=>this._onClickDelete(channel)}/>
         </div>
       </div>
 
       <div className="channel-show__list">
         {feed.map(item => {
-          return <ChannelShowItem item={item} key={item.guid} />
+          return <ChannelShowItem item={item} key={item.guid}/>
         })}
       </div>
     </div>);
@@ -69,13 +67,17 @@ export default class ChannelShow extends React.Component {
     this._getChannel(nextProps.params.id);
   }
 
+  _onClickDelete(channel) {
+    browserHistory.push(`/delete/${channel.id}`)
+  }
+
   _getChannel(id) {
     let channels = JSON.parse(localStorage['channels']);
     let res = channels.find(item => {
       if (item.id == (id || this.props.params.id)) return item;
     });
 
-    if(!res){
+    if (!res) {
       res = channels[0];
       localStorage['currentChannel'] = channels[0].id;
       browserHistory.push(`/${localStorage['currentAction']}/${localStorage['currentChannel']}`)
