@@ -35,6 +35,12 @@ export default [{
         _storageUpdate(extState.params.id, 'edit');
       }
     }, {
+      path: '/delete/:id',
+      component: ChannelEdit,
+      onEnter: (nextState, replace) => {
+        _storageUpdate(extState.params.id, 'delete');
+      }
+    }, {
       path: '/show/:id',
       component: ChannelShow,
       onEnter: (nextState, replace) => {
