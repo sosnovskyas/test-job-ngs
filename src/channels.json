@@ -122,6 +122,7 @@
     "id": 18,
     "name": "channel 3",
     "img": "./ch3.jpg",
-    "description": "The channel number 3"
+    "description": "The channel number 3",
+    "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss"
   }
 ]
