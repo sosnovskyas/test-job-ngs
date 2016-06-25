@@ -18,7 +18,7 @@ export default class ChannelShowItem extends React.Component {
     var pubDate = item.date;
     var date = new Date(pubDate);
 
-    var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
     var resDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()
 
 
